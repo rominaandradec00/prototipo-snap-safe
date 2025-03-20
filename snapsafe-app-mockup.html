@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapSafe App Mockup</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    
+    .app-container {
+      max-width: 375px;
+      margin: 20px auto;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      height: 750px;
+      background-color: #121212;
+      color: #fff;
+    }
+    
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 15px 5px;
+      background-color: #121212;
+      font-size: 12px;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #004AAD;
+    }
+    
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-color: white;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 8.96-7 10.19-3.87-1.23-7-5.52-7-10.19V6.3l7-3.12z'/%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z'/%3E%3C/svg%3E");
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 8.96-7 10.19-3.87-1.23-7-5.52-7-10.19V6.3l7-3.12z'/%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z'/%3E%3C/svg%3E");
+      mask-size: cover;
+      -webkit-mask-size: cover;
+    }
+    
+    .header h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+    }
+    
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background-color: #1e1e1e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .security-score {
+      background: linear-gradient(135deg, #004AAD 0%, #0062DB 100%);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .score-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 8px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .score-info h2 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    
+    .score-info p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 0 15px;
+      margin-bottom: 20px;
+    }
+    
+    .action {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 15px 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .action-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #004AAD;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    
+    .action p {
+      font-size: 12px;
+    }
+    
+    .section-title {
+      padding: 0 15px 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .threats-alerts {
+      padding: 0 15px;
+    }
+    
+    .alert-card {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .alert-icon {
+      width: 50px;
+      height: 50px;
+      background-color: #ff3a5e;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 24px;
+    }
+    
+    .alert-content h3 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    
+    .alert-content p {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+    
+    .alert-severity {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 12px;
+      background-color: #ff3a5e;
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+    
+    .warning-icon {
+      background-color: #ffaa3a;
+    }
+    
+    .warning-severity {
+      background-color: #ffaa3a;
+    }
+    
+    .nav-tabs {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: #1e1e1e;
+      padding: 15px 0;
+      border-top: 1px solid #2a2a2a;
+    }
+    
+    .tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 20px;
+    }
+    
+    .tab p {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    
+    .active-tab {
+      color: #004AAD;
+    }
+    
+    .map-container {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      margin: 0 15px 15px;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .map-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .map-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .map-details {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    
+    .map-background {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+      position: relative;
+    }
+    
+    .attack-point {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: #ff3a5e;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 58, 94, 0.6);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(255, 58, 94, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 58, 94, 0);
+      }
+    }
+    
+    .secondary-alert {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ffaa3a;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span>9:41</span>
+      <div>
+        <span>📶</span>
+        <span>📡</span>
+        <span>🔋</span>
+      </div>
+    </div>
+    
+    <!-- Header -->
+    <div class="header">
+      <div class="header-logo">
+        <div class="logo"></div>
+        <h1>SNAPSAFE</h1>
+      </div>
+      <div class="avatar">JD</div>
+    </div>
+    
+    <!-- Security Score -->
+    <div class="security-score">
+      <div class="score-info">
+        <h2>Tu Nivel de Seguridad</h2>
+        <p>2 vulnerabilidades detectadas</p>
+      </div>
+      <div class="score-circle">87</div>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="section-title">Acciones Rápidas</div>
+    <div class="quick-actions">
+      <div class="action">
+        <div class="action-icon">🔒</div>
+        <p>Contraseñas</p>
+      </div>
+      <div class="action">
+        <div class="action-icon">🔍</div>
+        <p>Escanear</p>
+      </div>
+      <div class="action">
+        <div class="action-icon">👤</div>
+        <p>Biometría</p>
+      </div>
+      <div class="action">
+        <div class="action-icon">🛡️</div>
+        <p>Privacidad</p>
+      </div>
+    </div>
+    
+    <!-- Threat Map -->
+    <div class="section-title">Mapa de Amenazas</div>
+    <div class="map-container">
+      <div class="map-background">
+        <!-- Attack points -->
+        <div class="attack-point" style="top: 30%; left: 70%;"></div>
+        <div class="attack-point" style="top: 45%; left: 20%;"></div>
+        <div class="secondary-alert" style="top: 60%; left: 40%;"></div>
+        <div class="secondary-alert" style="top: 25%; left: 50%;"></div>
+        <div class="secondary-alert" style="top: 70%; left: 85%;"></div>
+      </div>
+      <div class="map-overlay">
+        <div class="map-title">Alertas en tu región</div>
+        <div class="map-details">2 ataques importantes detectados cerca</div>
+      </div>
+    </div>
+    
+    <!-- Threats & Alerts -->
+    <div class="section-title">Alertas de Seguridad</div>
+    <div class="threats-alerts">
+      <div class="alert-card">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+          <h3>Vulnerabilidad WiFi</h3>
+          <p>Red pública insegura detectada</p>
+        </div>
+        <div class="alert-severity">Alto</div>
+      </div>
+      
+      <div class="alert-card">
+        <div class="alert-icon warning-icon">👁️</div>
+        <div class="alert-content">
+          <h3>Permisos excesivos</h3>
+          <p>3 apps tienen acceso a tu ubicación</p>
+        </div>
+        <div class="alert-severity warning-severity">Medio</div>
+      </div>
+    </div>
+    
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <div class="tab active-tab">
+        <div>🏠</div>
+        <p>Inicio</p>
+      </div>
+      <div class="tab">
+        <div>🔍</div>
+        <p>Escanear</p>
+      </div>
+      <div class="tab">
+        <div>🎓</div>
+        <p>Aprender</p>
+      </div>
+      <div class="tab">
+        <div>⚙️</div>
+        <p>Ajustes</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
